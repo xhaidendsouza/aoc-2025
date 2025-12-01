@@ -11,7 +11,7 @@ R14
 L82
 """
 
-#input = test_input
+input = test_input
 
 input = input.strip().split("\n")
 num = 50
