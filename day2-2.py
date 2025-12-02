@@ -1,0 +1,24 @@
+test_input="""11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"""
+input = test_input
+
+input = input.strip().split(",")
+total = 0
+for rng in input:
+    start = int(rng[:rng.find('-')])
+    end = int(rng[rng.find('-')+1:])
+    for i in range(start,end+1):
+        i = str(i)
+        breakbool = False
+        for sublength in range(1,6):
+            numList = []
+            if(len(i)%sublength==0 and len(i) != sublength):
+                for j in range(0, len(i), sublength):
+                    numList.append(i[j:j+sublength])
+                if(len(list(set(numList))) == 1):
+                    total += int(i)
+                    breakbool = True
+                    break
+            if breakbool:
+                break
+print(total)
+
